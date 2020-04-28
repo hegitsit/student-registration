@@ -1,17 +1,18 @@
 import React, { useContext, Fragment } from 'react'
-import StudentListContext from '../context/studentListContext';
+import { StudentListContext } from '../context/studentListContext';
 import { Link } from 'react-router-dom';
 
 export const StudentList = () => {
 
-  const studentListContext = useContext(StudentListContext);
-  const { studentList } = studentListContext;
+  const [students, setStudents] = useContext(StudentListContext);
 
   return (
     <Fragment>
+      <h1>Current students</h1>
       <table>
         <tbody>
-          {studentList.map((student, index) => (
+
+          {students.map((student, index) => (
             <tr key={index}>
               <td>{student.firstName}</td>
               <td>{student.lastName}</td>
@@ -28,5 +29,4 @@ export const StudentList = () => {
     </Fragment>
   )
 }
-
 

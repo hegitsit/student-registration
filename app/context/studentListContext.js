@@ -1,5 +1,15 @@
-import { createContext } from 'react';
+import React, { createContext, useState } from 'react';
 
-const studentListContext = createContext();
+export const StudentListContext = createContext();
 
-export default studentListContext;
+export const StudentListProvider = (props) => {
+  const [students, setStudents] = useState([]);
+
+  return (
+    <StudentListContext.Provider
+      value={[students, setStudents]}
+    >
+      {props.children}
+    </StudentListContext.Provider>
+  );
+}

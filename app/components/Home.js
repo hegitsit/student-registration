@@ -1,10 +1,8 @@
 import React, { Fragment, useState, useContext } from 'react';
-import StudentListContext from '../context/studentListContext';
-
+import { StudentListContext } from '../context/studentListContext';
 export const Home = () => {
-  const studentListContext = useContext(StudentListContext);
 
-  const { createStudent } = studentListContext;
+  const [students, setStudents] = useContext(StudentListContext);
 
   const onSubmit = (event) => {
     event.preventDefault();
@@ -19,7 +17,9 @@ export const Home = () => {
       phoneNumber: event.target.phoneNumber.value,
       gpa: event.target.gpa.value
     }
-    createStudent(obj)
+
+    setStudents((allStudents) => [...allStudents, obj])
+
     event.target.reset();
   }
 

@@ -1,11 +1,10 @@
 import React, { Fragment, useContext } from 'react';
-import StudentListContext from '../context/studentListContext';
+import { StudentListContext } from '../context/studentListContext';
 import { Link } from 'react-router-dom';
 
 export const StudentDetails = () => {
   const studentListContext = useContext(StudentListContext);
   const { student } = studentListContext;
-
   // const {
   //   firstName,
   //   lastName,
